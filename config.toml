@@ -23,6 +23,8 @@ hideSummary = false
 showtoc = true
 tocopen = true
 math = true
+[params.label]
+icon = "/logo.png"
 
     [params.homeInfoParams]
   Title = "Hi there 👋"
