@@ -149,7 +149,9 @@ One VPC can only be attached to one IGW and vice versa
 
 Internet Gateways on their own do not allow Internet access
 
-=> Route tables must also be edited!![](/igw_route_tables.png)
+=> Route tables must also be edited!
+
+![](/uploads/igw_route_tables.png)
 
 ## Bastion Hosts
 
