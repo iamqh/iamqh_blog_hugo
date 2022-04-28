@@ -1,9 +1,7 @@
 ---
 title: VPC
 date: 2022-04-28T11:15:41.000+07:00
-tags:
-- AWS
-
+tags: ["AWS", "note"]
 ---
 ## Overall
 

@@ -6,6 +6,7 @@ showToc: false
 hidemeta: true
 comments: false
 disableShare: true
+ShowBreadCrumbs: false
 ---
 Hi there,
 

@@ -1,4 +1,4 @@
-baseURL = ''
+baseURL = 'http://blog.iamqh.me'
 languageCode = 'vi-vn'
 title = "iamqh's Blog"
 theme = 'PaperMod'
@@ -26,7 +26,8 @@ math = true
 
     [params.homeInfoParams]
   Title = "Hi there 👋"
-  Content = "Write code, love life!"
+  Content = """Write code, love life!
+  """
 
   [[params.socialIcons]]
   name = "facebook"
@@ -43,6 +44,10 @@ math = true
   [[params.socialIcons]]
   name = "email"
   url = "mailto:hoapq.4398@gmail.com"
+
+  [[params.socialIcons]]
+  name = "rss"
+  url = "/index.xml"
 
 [[menu.main]]
 identifier = "about"
