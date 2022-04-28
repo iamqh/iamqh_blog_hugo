@@ -123,7 +123,7 @@ Max. CIDR per VPC is 5, for each CIDR:
 * Min. size is /28 (16 addresses)
 * Max. size is /16 (65536 addresses)
 
-**Note: Your VPC CIDR shoud NOT overlap with your other VPCs or networks (e.g. corperate)**
+**Note: Your VPC CIDR should NOT overlap with your other VPCs or networks (e.g. corporate)**
 
 Public subnet:
 
