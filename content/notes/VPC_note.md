@@ -22,6 +22,40 @@ If you want to connect from another VPC or on-premise, you can use Transit Gatew
 
 Transit Gateway is a highly available resource => don't have to create multiple transit gateways for redundancy
 
+## CIDR
+
+Classless Inter-Domain Routing - a method for allocating IP addresses
+
+Used in Security Groups rules and AWS networking in general
+
+They help to define an IP address range:
+- ww.xx.yy.zz/32 => one IP
+- 0.0.0.0/0 => all IPs
+
+$$
+=> number\ IPs = 2^{32 - x}
+$$
+
+A CIDR consists of 2 components:
+- Base IP
+- Subnet mask
+
+### Subnet mask
+The subet mask basically allows part of the underlying IP to get additional next value form the base IP
+192.168.0.0/30 
+
+=> 4 IPs 
+
+=> 192.168.0.0 -> 192.168.0.3
+
+### Public vs private IP (IPv4)
+IANA established certain blocks of IPv4 addresses for the use of private (LAN) and public (Internet) addresses
+
+- **Private IP** can only allow certain values:
+    * 10.0.0.0/8 (in big networks)
+    * 172.16.0.0/12 (AWS default VPC in that range)
+    * 192.168.0.0/16 (home network)
+
 ## Elastic IP Address
 
 Allocate an EIP to your account and keep it as long as you want
