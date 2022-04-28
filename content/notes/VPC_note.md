@@ -1,7 +1,10 @@
 ---
 title: VPC
 date: 2022-04-28T11:15:41.000+07:00
-tags: ["AWS", "note"]
+tags:
+- AWS
+- note
+
 ---
 ## Overall
 
@@ -120,7 +123,7 @@ Max. CIDR per VPC is 5, for each CIDR:
 * Min. size is /28 (16 addresses)
 * Max. size is /16 (65536 addresses)
 
-**Note: Your VPC CIDR shoud NOT overlap with your other VPCs or networks (e.g. coperate)**
+**Note: Your VPC CIDR shoud NOT overlap with your other VPCs or networks (e.g. corperate)**
 
 Public subnet:
 
@@ -152,7 +155,7 @@ Internet Gateways on their own do not allow Internet access
 
 Bastion host is an EC2 instance in a public subnet and it's a bastion because we go through it =)))
 
-So we ssh to bastion host and the bastion host ssh into the EC2 Instance of the private segment. This is a concept of the **hop**. 
+So we ssh to bastion host and the bastion host ssh into the EC2 Instance of the private segment. This is a concept of the **hop**.
 
 **Note: Make sure the bastion host only has port 22 traffic from the IP address you need**
 
