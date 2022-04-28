@@ -54,3 +54,9 @@ identifier = "tags"
 name = "Tags"
 url = "/tags/"
 weight = 20
+
+[[menu.main]]
+identifier = "notes"
+name = "Notes"
+url = "/notes/"
+weight = 10
