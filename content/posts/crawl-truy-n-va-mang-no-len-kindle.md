@@ -8,7 +8,7 @@ Chuyện là đợt dính covid vừa rồi phải cách ly một mình một c�
 
 # Crawl data
 
-Okay, let's start! Trước hết thì trang web mình tìm được là [Truyện dịch](). Như các bạn đã thấy, trang web đã có đầy đủ các thông tin cơ bản của 1 ebook như cover, tác giả, lời giới thiệu và mục lục.
+Okay, let's start! Trước hết thì trang web mình tìm được là [Truyện dịch](https://truyendich.com/tieu-thuyet-conan-ban-giao-huong-cua-ke-sat-nhan). Như các bạn đã thấy, trang web đã có đầy đủ các thông tin cơ bản của 1 ebook như cover, tác giả, lời giới thiệu và mục lục.
 
 Bây giờ chúng ta cùng vào xem thử một chương của tiểu thuyết xem sao. May quá, toàn bộ đều chỉ là html bình thường, không phải load js gì cả. Vậy thì việc crawl data sẽ không gặp khó khăn gì cả! Mình sẽ sử dụng python kết hợp với lxml để crawl thôi. Sau khi trích xuất được content của từng chapter, mình sẽ lưu nó lại thành từng file `markdown` tương ứng với từng chapter. Còn tại sao lại là markdown thì phần sau sẽ rõ
 
@@ -88,7 +88,7 @@ Cuối cùng là vứt nó lên kindle bằng cách gửi qua mail mình đã đ
 
 # Kết
 
-Đây là toàn bộ source code mà mình đã dùng để crawl và chuyển sang epub. Các bạn có thể tham khảo tại [repo này]().
+Đây là toàn bộ source code mà mình đã dùng để crawl và chuyển sang epub. Các bạn có thể tham khảo tại [repo này](https://github.com/HoaPham98/truyen-dich-to-ebook).
 
 Còn rất nhiều điều có thể làm tiếp tại dự án này, như là thêm ảnh cover cho ebook, tạo extension cho chrome để có thể download trực tiếp từ trang web hoặc tạo 1 con web riêng để mọi người có thể điền link vào và tải về, vân vân và mây mây...
 
