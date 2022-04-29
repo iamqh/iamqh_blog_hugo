@@ -1,6 +1,5 @@
 +++
 date = 2022-04-28T17:00:00Z
-draft = true
 tags = ["python", "crawl"]
 title = "Crawl truyện và mang nó lên Kindle"
 
@@ -14,7 +13,17 @@ Okay, let's start! Trước hết thì trang web mình tìm được là [Truy�
 Bây giờ chúng ta cùng vào xem thử một chương của tiểu thuyết xem sao. May quá, toàn bộ đều chỉ là html bình thường, không phải load js gì cả. Vậy thì việc crawl data sẽ không gặp khó khăn gì cả! Mình sẽ sử dụng python kết hợp với lxml để crawl thôi. Sau khi trích xuất được content của từng chapter, mình sẽ lưu nó lại thành từng file `markdown` tương ứng với từng chapter. Còn tại sao lại là markdown thì phần sau sẽ rõ
 
 ```python
-# Thêm sau
+def _getChapter(self, number: int, url: str):
+  file_name = 'chapter-{0}.md'.format(number)
+  html_text = self.session.get(url).text
+  tree = etree.HTML(html_text)
+  content_node = tree.xpath('//div[@id="read-content"]')[0]
+  chapter_html = etree.tostring(content_node)
+  file = os.path.join(self.save_path, file_name)
+  with open(file, "w", encoding='utf-8') as text_file:
+  markdown_text = md(chapter_html)
+  markdown_text = markdown_text.replace(' - ', ' \- ')
+  text_file.write(markdown_text)
 ```
 
 # Tạo ebook
@@ -22,7 +31,20 @@ Bây giờ chúng ta cùng vào xem thử một chương của tiểu thuyết x
 Mình rất là khó chịu với việc đọc phải ebook nào mà không có mục lục, khi đó để xem mình đang đọc đến đâu hoặc là chọn nhanh 1 chương là gần như không thể. Vì vậy mình tách mỗi chapter thành 1 file markdown, và dùng MarkdownPP để gắn chúng lại với nhau.
 
 ```python
-# Thêm sau
+with open(input_name, 'w', encoding='utf-8') as template:
+            # template.write('> Dedication\n\n')
+            template.writelines(['% {0}'.format(novel.title),'\n', '% {0}'.format(novel.author), '\n\n'])
+            # template.write('# {0}\n\n'.format(novel.title))
+            # template.write('!TOC\n\n')
+            for chapter in chapters:
+                template.write('## {0}\n\n'.format(chapter.title))
+                template.write('!INCLUDE "{0}/{1}", 1\n\n'.format(self.save_path, chapter.file_name))
+            template.close()
+        input = open(input_name, 'r')
+        output = open(output_name, 'w')
+        MarkdownPP.MarkdownPP(input=input, output=output, modules=list(MarkdownPP.modules))
+        input.close()
+        output.close()
 ```
 
 Như các bạn thấy ở trên, trc khi thêm từng chapter, mình đều để 1 heading, điều này sẽ giúp chúng ta dễ dàng trong bước tạo ebook này.
@@ -57,7 +79,10 @@ Làm cái này mình mới nhận ra là làm ebook cũng style bằng css. Tấ
 Sau khi style xong thì mình build ebook thôi
 
 ```python
-# Thêm sau
+output = open(output_name, 'r')
+        doc = pandoc.read(file=output)
+        pandoc.write(doc=doc, file='{0}.epub'.format(slug), format='epub', options=['--css=style.css'])
+        output.close()
 ```
 
 Cuối cùng là vứt nó lên kindle bằng cách gửi qua mail mình đã đăng kí. Và đây là thành quả
