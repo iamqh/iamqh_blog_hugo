@@ -29,9 +29,10 @@
 
   {{- if .Content }}
   <div class="post-content">
+    {{ $content := replaceRE " :\\b([a-z\\-_]+)\\b:" " <i class='em em-$1'></i>" .Content }}
     {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+    {{- partial "anchored_headings.html" $content -}}
+    {{- else }}{{$content}}{{ end }}
   </div>
   {{- end }}
 
