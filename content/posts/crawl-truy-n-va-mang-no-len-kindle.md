@@ -32,19 +32,16 @@ Mình rất là khó chịu với việc đọc phải ebook nào mà không có
 
 ```python
 with open(input_name, 'w', encoding='utf-8') as template:
-            # template.write('> Dedication\n\n')
-            template.writelines(['% {0}'.format(novel.title),'\n', '% {0}'.format(novel.author), '\n\n'])
-            # template.write('# {0}\n\n'.format(novel.title))
-            # template.write('!TOC\n\n')
-            for chapter in chapters:
-                template.write('## {0}\n\n'.format(chapter.title))
-                template.write('!INCLUDE "{0}/{1}", 1\n\n'.format(self.save_path, chapter.file_name))
-            template.close()
-        input = open(input_name, 'r')
-        output = open(output_name, 'w')
-        MarkdownPP.MarkdownPP(input=input, output=output, modules=list(MarkdownPP.modules))
-        input.close()
-        output.close()
+	template.writelines(['% {0}'.format(novel.title),'\n', '% {0}'.format(novel.author), '\n\n'])
+    for chapter in chapters:
+    	template.write('## {0}\n\n'.format(chapter.title))
+        template.write('!INCLUDE "{0}/{1}", 1\n\n'.format(self.save_path, chapter.file_name))
+    template.close()
+    input = open(input_name, 'r')
+    output = open(output_name, 'w')
+    MarkdownPP.MarkdownPP(input=input, output=output, modules=list(MarkdownPP.modules))
+    input.close()
+    output.close()
 ```
 
 Như các bạn thấy ở trên, trc khi thêm từng chapter, mình đều để 1 heading, điều này sẽ giúp chúng ta dễ dàng trong bước tạo ebook này.
@@ -80,9 +77,9 @@ Sau khi style xong thì mình build ebook thôi
 
 ```python
 output = open(output_name, 'r')
-        doc = pandoc.read(file=output)
-        pandoc.write(doc=doc, file='{0}.epub'.format(slug), format='epub', options=['--css=style.css'])
-        output.close()
+doc = pandoc.read(file=output)
+pandoc.write(doc=doc, file='{0}.epub'.format(slug), format='epub', options=['--css=style.css'])
+output.close()
 ```
 
 Cuối cùng là vứt nó lên kindle bằng cách gửi qua mail mình đã đăng kí. Và đây là thành quả
