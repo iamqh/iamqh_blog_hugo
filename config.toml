@@ -1,55 +1,61 @@
 baseURL = 'http://blog.iamqh.me'
 languageCode = 'vi-vn'
-title = "iamqh's Blog"
 theme = 'PaperMod'
+title = "iamqh's Blog"
 
 [params]
-env = 'development'
-title = "iamqh's Blog"
-author = "iamqh"
 DateFormat = "January 2, 2006"
-defaultTheme = "auto"
-disableThemeToggle = false
-ShowReadingTime = true
-ShowShareButtons = true
-ShowPostNavLinks = true
 ShowBreadCrumbs = true
 ShowCodeCopyButtons = false
-disableSpecial1stPost = false
-disableScrollToTop = false
+ShowPostNavLinks = true
+ShowReadingTime = true
+ShowShareButtons = true
+author = "iamqh"
 comments = true
-hidemeta = false
+defaultTheme = "auto"
+disableScrollToTop = false
+disableSpecial1stPost = false
+disableThemeToggle = false
+env = 'development'
 hideSummary = false
-showtoc = true
-tocopen = true
+hidemeta = false
 math = true
+showtoc = true
+title = "iamqh's Blog"
+tocopen = true
 [params.label]
 icon = "/logo.png"
 
-    [params.homeInfoParams]
-  Title = "Hi there 👋"
-  Content = """Write code, love life!
+[params.homeInfoParams]
+Content = """Write code, love life!
+<br/><br/>
+  Look like you've found my tiny space on the Internet.
+<br/><br/>
+  Beside some posts I've wrote here, you can find my notes in [<b style="font-size:15pt;">Everyday Learning</b>](/everyday)
+  
+  which writing about what I learned "everyday" 😁. 
   """
+Title = "Hi there! I'm Hoa 👋"
 
-  [[params.socialIcons]]
-  name = "facebook"
-  url = "https://facebook.com/phamquang.hoa.79"
+[[params.socialIcons]]
+name = "facebook"
+url = "https://facebook.com/phamquang.hoa.79"
 
-  [[params.socialIcons]]
-  name = "linkedin"
-  url = "https://stackoverflow.com"
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://stackoverflow.com"
 
-  [[params.socialIcons]]
-  name = "github"
-  url = "https://github.com/HoaPham98"
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/HoaPham98"
 
-  [[params.socialIcons]]
-  name = "email"
-  url = "mailto:hoapq.4398@gmail.com"
+[[params.socialIcons]]
+name = "email"
+url = "mailto:hoapq.4398@gmail.com"
 
-  [[params.socialIcons]]
-  name = "rss"
-  url = "/index.xml"
+[[params.socialIcons]]
+name = "rss"
+url = "/index.xml"
 
 [[menu.main]]
 identifier = "about"
@@ -64,7 +70,17 @@ url = "/tags/"
 weight = 20
 
 [[menu.main]]
-identifier = "notes"
-name = "Notes"
-url = "/notes/"
-weight = 10
+identifier = "everyday"
+name = "Everyday"
+url = "/everyday/"
+weight = 6
+[[menu.main]]
+name = "Archive"
+identifier = "archives"
+url = "/archives/"
+weight = 5
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
