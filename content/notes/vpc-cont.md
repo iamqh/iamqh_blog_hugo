@@ -28,3 +28,58 @@ By default,
 * False => newly created VPCs
 
 Won't do anything unless enableDNSSupport=true
+
+# Connectivity Options
+
+## Direct Connect
+
+Low-latency connection to an AWS region
+
+Bypasses the Internet
+
+2 types:
+
+* Delicated
+
+Physical connection that terminates at a Direct Connection location
+
+1 or 10 Gbps
+
+* Hosted
+
+"last-mile" connection provided by a Direct Connect partner
+
+50 Mbps to 10 Gbps
+
+## Virtual private network (VPN)
+
+Encrypted IPsec connection over the internet
+
+Unpredictable latency
+
+Can be implemented in 2 ways:
+
+* Virtual private gateway
+* Transit gateway
+
+### Virtual Private Gateway
+
+Enables you to establish a VPN tunnel with only one VPC
+
+Doesn't scale well
+
+### Transit gateway
+
+Connects VPCs and on-premises networks
+
+* Terminates multiple VPN connections
+* Supports Direct Connect
+
+Connects multiple VPCs together
+
+Transit Gateway Route Tables
+
+* Control how traffic is routed between subnets
+* Can block (blackhole) traffic
+
+**Trasit gateway supports multicast!!!**
