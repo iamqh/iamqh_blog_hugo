@@ -83,3 +83,43 @@ Transit Gateway Route Tables
 * Can block (blackhole) traffic
 
 **Trasit gateway supports multicast!!!**
+
+# VPC Peering
+
+Privately connect 2 VPCs using AWS' network
+
+Make them behave as if they were in same network
+
+Must not have overlapping CIDRs
+
+VPC Peering connection is **NOT transitive** (must be established for each VPC that need to communicate with one another)
+
+**You must update route tables in <u>each VPC's subnets</u> to ensure EC2 instances can communicate with each other**
+
+## Good to know
+
+* You can create VPC Peering connection between VPCs in **different AWS accounts/regions**
+* You can reference a security group in a peered VPC (works cross accounts - same region)
+
+# VPC Endpoints (AWS privateLink)
+
+VPC endpoinst are private endpoints within your VPC that allow you to initiate a private connection to the AWS services
+
+* Every AWS service is publicky exposed (public URL)
+* VPC endpoints allows you to connect to AWS services using a private network instead of using the public internet
+* They're redundant and scale horizontally
+* They remove the need of IGW, NATGW, .. to access AWS services
+* In case of issues:
+  * Check DNS Setting Resolution in your VPC
+  * Check route tables
+
+2 types:
+
+* Interface Endpoints
+  * Provisions an ENI (private IP address) as an entry point (must attach a Security Group)
+  * Supports most AWS services
+
+
+* Gateway Endpoints
+  * Provisions a gateway and must be used as a target in a route table
+  * Supports both S3 and DynamoDB
