@@ -89,3 +89,56 @@ EBS Volumes are characterized in Size | Throughput | IOPS (I/O Ops Per Sec)
 **Only gp2/gp3 and io1/io2 can be used as boot volumes**
 
 # EFS - Elastic File System
+
+Managed NFS (network file system) that can be mounted on many EC2
+
+EFS works with EC2 instances in multi-AZ
+
+Highly available, scalable, expensive (3x gp2), pay per use
+
+Use cases:
+
+* Content management
+* Web serving
+* Data sharing
+* Wordpress
+
+Uses NFSv4.1 protocol
+
+Uses security group to control access to EFS
+
+Compatible with Linux based AMI (not Windows)
+
+Encryption at rest using KMS
+
+## Performance
+
+EFS Scale
+
+* 1000s of concurrent NFS clients, 10 GB+ /s throughput
+* Grow to Petabyte-scale network file system, automatically
+
+Performance mode (set at EFS creation time)
+
+* General purpose (default): latency-sensitive use cases
+* Max I/O - higher latency, throughput, highly parallel (big data, media processing)
+
+Throughput mode
+
+* Bursting (1TB = 50MiB/s + burst of up to 100MiB/s)
+* Provisioned: set your throughput regardless of storage size, ex: 1 GiB/s for 1 TB storage
+
+## Storage Classes
+
+**Storage Tiers (lifecycle management feature - move file after N days)**
+
+* Standard: for frequently accessed files
+* Infrequent access (EFS-IA): cost to retrieve files, lower price to store. Enable EFS-IA with a Lifecycle Policy
+* With no acesss for 60 days files, they will be moved to EFS-IA 
+
+**Availability and durability**
+
+* Regional: Multi-AZ, great for prod
+* One zone: One AZ, great for dev, backup enabled by default, compatible with IA
+
+**Over 90% in cost saving**
