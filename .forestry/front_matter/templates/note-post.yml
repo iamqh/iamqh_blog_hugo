@@ -12,5 +12,6 @@ fields:
   name: tags
   label: tags
 pages:
+- content/notes/aws-compute-performance.md
 - content/notes/vpc-cont.md
 - content/posts/crawl-truy-n-va-mang-no-len-kindle.md
