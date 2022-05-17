@@ -48,7 +48,7 @@ Access management
 
 # EBS - Block Storage
 
-## ESB Volume
+## EBS Volume
 
 An EBS Volume is a network drive you can attach to your instances while they run
 
@@ -133,7 +133,7 @@ Throughput mode
 
 * Standard: for frequently accessed files
 * Infrequent access (EFS-IA): cost to retrieve files, lower price to store. Enable EFS-IA with a Lifecycle Policy
-* With no acesss for 60 days files, they will be moved to EFS-IA 
+* With no acesss for 60 days files, they will be moved to EFS-IA
 
 **Availability and durability**
 
