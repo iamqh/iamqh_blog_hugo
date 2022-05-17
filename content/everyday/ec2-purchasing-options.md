@@ -1,6 +1,6 @@
 +++
 date = 2022-05-17T09:00:00Z
-tags = []
+tags = ["AWS"]
 title = "EC2 Purchasing Options"
 
 +++
