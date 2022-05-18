@@ -1,4 +1,7 @@
 {{- $scratch := newScratch }}
+{{- $page_id := delimit (slice "iamqh" .RelPermalink) "."}}
+
+{{- $scratch.Add "meta" (slice (printf "<span><img src='https://visitor-badge-reloaded.herokuapp.com/badge?page_id=%s&style=flat-square&text=Read'/></span>" $page_id)) }}
 
 {{- if not .Date.IsZero -}}
 {{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
