@@ -14,10 +14,12 @@
     {{- end }}
     {{- if not (.Param "hideMeta") }}
     <div class="post-meta">
+      {{- .Scratch.Set "showRead" "true" -}}
       {{- partial "post_meta.html" . -}}
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
+      {{- .Scratch.Set "showRead" "false" -}}
     </div>
     {{- end }}
   </header>
