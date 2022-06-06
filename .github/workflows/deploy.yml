@@ -32,7 +32,8 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: './public'
-          destination-github-username: 'iamqh'
+          destination-github-username: 'HoaPham98'
+          destination-repository-username: 'iamqh'
           destination-repository-name: 'iamqh.github.io'
           user-email: hoapq.4398@gmail.com
           target-branch: master
