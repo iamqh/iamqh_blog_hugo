@@ -35,5 +35,6 @@ jobs:
           destination-github-username: 'HoaPham98'
           destination-repository-username: 'iamqh'
           destination-repository-name: 'iamqh.github.io'
+          user-name: HoaPham98
           user-email: hoapq.4398@gmail.com
           target-branch: master
